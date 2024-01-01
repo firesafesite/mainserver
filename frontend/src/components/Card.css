@@ -1,0 +1,50 @@
+.card {
+  display: grid;
+  padding: 1rem;
+  border-radius: 15px;
+  grid-template-columns: repeat(3);
+  grid-column-gap: 10px; /* Horizontal gap between grid items */
+  grid-row-gap: 20px; /* Vertical gap between grid items */
+  background: white;
+}
+
+.card-header {
+  display: flexbox;
+  flex-direction: row;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px; /* Adjust the gap size according to your preference */
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.flash-button {
+  animation: flash 2s infinite;
+}
+
+.live-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 100, 100, 0.644);
+}

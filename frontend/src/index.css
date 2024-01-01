@@ -1,0 +1,98 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: black;
+  height: 100%;
+  background-image: linear-gradient(
+    to left bottom,
+    #dfffaa,
+    #f8e28f,
+    #ffc489,
+    #ffa993,
+    #f694a4,
+    #e18bab,
+    #c985b0,
+    #ae80b0,
+    #9b7ca7,
+    #8a779b,
+    #7b718f,
+    #6e6b81
+  );
+  background-attachment: fixed;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.navbar {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 2rem;
+  align-items: center;
+}
+
+.navbar > div > * {
+  margin-left: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    flex-direction: column;
+    /* Additional CSS properties for the navbar below 1331px */
+  }
+  .navbar>div {
+    flex-direction: column;
+  }
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
