@@ -1,36 +1,48 @@
 import { useCallback, useState } from "react";
 import ImageModal from "./Modal";
 import { useDropzone } from "react-dropzone";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Dropzone() {
   const onDrop = useCallback((acceptedFiles) => {
     // Do something with the files
-    const file = acceptedFiles.pop();
-    console.log(file);
     let formData = new FormData();
 
-    formData.append("image", file);
-    toast("Uploading image...", { autoClose: 2000 })
-    fetch("http://144.202.65.241:5000/upload", { method: "POST", body: formData })
+    formData.append("image", acceptedFiles[0]);
+    console.log(acceptedFiles[0]);
+    toast("Uploading image...", { autoClose: 2000 });
+    // fetch("http://144.202.65.241:5000/upload", { method: "POST", body: formData })
+    //   .then((response) => {
+    //     toast("Analyzing image...", { autoClose: 2000 })
+    //     response.text().then((text) => {
+    //       fetch(
+    //         `http://144.202.65.241:5000/predict?url=http://144.202.65.241:5000/download/${text}.png`,
+    //         { method: "POST" }
+    //       )
+    //         .then((resp) => {
+    //           resp.json().then((json) => {
+    //             console.log(json);
+    //             toast("Image analyzed!", { autoClose: 2000 })
+    //             openModal(json.image);
+    //           });
+    //         })
+    //         .catch((error) => {
+    //           console.log(error);
+    //         });
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    fetch("/api/predict", { method: "POST", body: formData })
       .then((response) => {
-        toast("Analyzing image...", { autoClose: 2000 })
-        response.text().then((text) => {
-          fetch(
-            `http://144.202.65.241:5000/predict?url=http://144.202.65.241:5000/download/${text}.png`,
-            { method: "POST" }
-          )
-            .then((resp) => {
-              resp.json().then((json) => {
-                console.log(json);
-                toast("Image analyzed!", { autoClose: 2000 })
-                openModal(json.image);
-              });
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+        toast("Analyzing image...", { autoClose: 2000 });
+        response.json().then((json) => {
+          console.log(json);
+          toast("Image analyzed!", { autoClose: 2000 });
+          openModal(json.image);
         });
       })
       .catch((error) => {
@@ -60,8 +72,7 @@ function Dropzone() {
         border: "2px solid #000",
         borderRadius: "5px",
         display: "flex",
-        "justify-content":
-          "center" /* Adjust this based on your desired horizontal alignment */,
+        "justify-content": "center",
         "align-items": "center",
         flexDirection: "column",
         cursor: "pointer",

@@ -6,7 +6,7 @@ function Images({ images }) {
   const imgs = images.map((image) => {
     return (
       <img
-        src={image + "?q=" + new Date()}
+        src={image}
         alt=""
         key={image.id}
         style={{ cursor: "pointer" }}

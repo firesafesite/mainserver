@@ -8,6 +8,8 @@ flask-cors = "*"
 numpy = "*"
 ultralytics = "*"
 opencv-python = "*"
+requests = "*"
+pillow = "*"
 
 [dev-packages]
 
